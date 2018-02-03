@@ -1,3 +1,12 @@
+#' This runs the SWAT2012 executable in the current directory.
+#' 
+#' This function runs the SWAT2012 executable in the current directory.
+#' 
+#' 
+#' @param hist_wx Describe \code{hist_wx}
+#' @param elev Describe \code{elev}
+#' @param rch Describe \code{rch}
+#' @author Daniel R. Fuka
 runSWAT2012<-function (hist_wx=NULL,elev=100,rch=3) {
     Sys.setenv(GFORTRAN_STDIN_UNIT = -1)
     Sys.setenv(GFORTRAN_STDOUT_UNIT = -1)

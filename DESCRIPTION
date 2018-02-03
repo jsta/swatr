@@ -1,4 +1,4 @@
-Package: SWATmodel
+Package: swatr
 Version: 0.5.9
 Title: A multi-OS implementation of the TAMU SWAT model.
 Author: Fuka, DR, Walter, MT, Steenhuis, TS, and Easton, ZM
@@ -12,3 +12,4 @@ Repository: CRAN
 Date/Publication: 2014-01-04 09:11:22
 Packaged: 2014-01-04 08:01:49 UTC; ripley
 NeedsCompilation: yes
+RoxygenNote: 6.0.1

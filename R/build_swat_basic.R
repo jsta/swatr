@@ -1,6 +1,29 @@
 # Function for example
 # 
 #
+
+
+#' Extracts a simple 9 HRU, 3 subbasin SWAT initialization
+#' 
+#' Extracts a simple 9 HRU, 3 subbasin SWAT initialization
+#' 
+#' 
+#' @param dirname Describe \code{dirname}
+#' @param iyr Describe \code{iyr}
+#' @param nbyr Describe \code{nbyr}
+#' @param wsarea Describe \code{wsarea}
+#' @param elev Describe \code{elev}
+#' @param declat Describe \code{declat}
+#' @param declon Describe \code{declon}
+#' @param hist_wx Describe \code{hist_wx}
+#' @author Daniel Fuka
+#' @examples
+#' 
+#' 
+#' \dontrun{
+#' build_swat_basic(dirname="test", iyr="1979", nbyr=13, wsarea=40, elev=200, declat=45, declon=-72, hist_wx=hist_wx) 
+#' }
+#' 
 build_swat_basic<-function(dirname,iyr=2000,nbyr=2,wsarea=45,elev=500,declat=45.7,declon=-76,hist_wx=NULL){
 #
 # Removing the global variables Note. Delete the first line when past supported versions are past v15.1
