@@ -3,7 +3,7 @@
 swatr
 =====
 
-This package adds documentation to the `SWATmodel` package.
+This package adds documentation to the `SWATmodel` package and reproduces some of the model setup functionality of the `QSWAT` qgis plugin.
 
 Installation
 ------------
