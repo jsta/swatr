@@ -4,7 +4,7 @@
 \alias{runSWAT2012}
 \title{This runs the SWAT2012 executable in the current directory.}
 \usage{
-runSWAT2012(hist_wx = NULL, elev = 100, rch = 3)
+runSWAT2012(simdir = ".", hist_wx = NULL, elev = 100, rch = 3)
 }
 \arguments{
 \item{hist_wx}{Describe \code{hist_wx}}
@@ -15,6 +15,11 @@ runSWAT2012(hist_wx = NULL, elev = 100, rch = 3)
 }
 \description{
 This function runs the SWAT2012 executable in the current directory.
+}
+\examples{
+\dontrun{
+runSWAT2012("test")
+}
 }
 \author{
 Daniel R. Fuka

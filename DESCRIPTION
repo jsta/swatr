@@ -1,8 +1,8 @@
 Package: swatr
-Version: 0.5.9
+Version: 0.1
 Title: A multi-OS implementation of the TAMU SWAT model.
-Author: Fuka, DR, Walter, MT, Steenhuis, TS, and Easton, ZM
-Maintainer: Daniel Fuka <drf28@cornell.edu>
+Author: Stachelek, JS, Fuka, DR, Walter, MT, Steenhuis, TS, and Easton, ZM
+Maintainer: Joseph Stachelek <stachel2@msu.edu>
 Depends: R (>= 2.10), EcoHydRology
 Description: The Soil and Water Assessment Tool is a river basin or
         watershed scale model developed by Dr. Jeff Arnold for the
@@ -10,3 +10,7 @@ Description: The Soil and Water Assessment Tool is a river basin or
 License: GPL-2
 NeedsCompilation: yes
 RoxygenNote: 6.0.1
+Imports: nhdR
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

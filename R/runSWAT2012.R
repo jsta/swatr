@@ -6,15 +6,18 @@
 #' @param hist_wx Describe \code{hist_wx}
 #' @param elev Describe \code{elev}
 #' @param rch Describe \code{rch}
+#' @export
 #' @author Daniel R. Fuka
 #'
 #' @examples \dontrun{
 #' runSWAT2012("test")
 #' }
 runSWAT2012 <- function(simdir = ".", hist_wx = NULL, elev = 100, rch = 3) {
-  Sys.setenv(GFORTRAN_STDIN_UNIT = -1)
+
+  Sys.setenv(GFORTRAN_STDIN_UNIT  = -1)
   Sys.setenv(GFORTRAN_STDOUT_UNIT = -1)
   Sys.setenv(GFORTRAN_STDERR_UNIT = -1)
+
   if(length(hist_wx) > 2) {
     tmp_head <- paste("Tmp\nLati Not Used\nLong Not Used\nElev        ",
                       sprintf("%5.0f\n", elev), sep = "")
@@ -30,11 +33,12 @@ runSWAT2012 <- function(simdir = ".", hist_wx = NULL, elev = 100, rch = 3) {
   libarch <- if (nzchar(version$arch))
     paste("libs", version$arch, sep = "/") else "libs"
   swatbin <- "rswat2012.exe"
+  browser()
   system(shQuote(paste(path.package("swatr"), libarch, swatbin, sep = "/")))
 
   start_year <- read.fortran(textConnection(readLines(
     file.path(simdir, "file.cio"))[9]), "f20")
-  browser()
+
   temp <- readLines(file("output.rch"))
   rchcolname <- sub(" ", "", (substr(temp[9], 50, 61)))
   flow <- data.frame(as.numeric(as.character(substr(temp[10:length(temp)],

@@ -4,7 +4,7 @@
 \alias{readSWAT}
 \title{Read output.* files from SWAT200*}
 \usage{
-readSWAT(outfile_type)
+readSWAT(outfile_path = "output", outfile_type)
 }
 \arguments{
 \item{outfile_type}{outfile_type ie. "sub","rch",etc.}

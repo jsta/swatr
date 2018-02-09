@@ -11,6 +11,7 @@
 #' @param declat Describe \code{declat}
 #' @param declon Describe \code{declon}
 #' @param hist_wx Describe \code{hist_wx}
+#' @export
 #' @author Daniel Fuka
 #' @examples
 #'
