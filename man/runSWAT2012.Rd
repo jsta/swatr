@@ -7,6 +7,8 @@
 runSWAT2012(simdir = ".", hist_wx = NULL, elev = 100, rch = 3)
 }
 \arguments{
+\item{simdir}{file.path}
+
 \item{hist_wx}{Describe \code{hist_wx}}
 
 \item{elev}{Describe \code{elev}}
@@ -18,7 +20,8 @@ This function runs the SWAT2012 executable in the current directory.
 }
 \examples{
 \dontrun{
-runSWAT2012("test")
+setwd("test")
+test <- runSWAT2012(file.path(getwd(), ""))
 }
 }
 \author{

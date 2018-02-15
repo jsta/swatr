@@ -2,7 +2,7 @@
 #'
 #' This function runs the SWAT2012 executable in the current directory.
 #'
-#'
+#' @param simdir file.path
 #' @param hist_wx Describe \code{hist_wx}
 #' @param elev Describe \code{elev}
 #' @param rch Describe \code{rch}

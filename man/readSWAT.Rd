@@ -4,9 +4,11 @@
 \alias{readSWAT}
 \title{Read output.* files from SWAT200*}
 \usage{
-readSWAT(outfile_path = "output", outfile_type)
+readSWAT(simdir = "output", outfile_type)
 }
 \arguments{
+\item{simdir}{file.path}
+
 \item{outfile_type}{outfile_type ie. "sub","rch",etc.}
 }
 \description{
@@ -17,13 +19,18 @@ A function to read output.* files from SWAT200* runs.
 ## The function is currently defined as
 function(outfile){
 
-if (outfile=="sub"){
+if(outfile=="sub"){
    varformat="x6,a4,1x,a8,1x,a4,a10,30a10"
    dataformat="x6,i4,1x,i8,1x,i4,f10,30f10"
-  } else if (outfile=="rch"){
+ }else{
+    if (outfile=="rch"){
    varformat="x6,a4,1x,a8,1x,a5,30a12"
    dataformat="x6,i4,1x,i8,1x,i5,30f12"
-  } else { print ("You need to add your file type to this function if it is not output.sub or output.rch")}
+    }else{
+      print("You need to add your file type to this function
+            if it is not output.sub or output.rch")
+    }
+  }
   print(varformat)
   print(dataformat)
   vfrformat = unlist(strsplit(as.character(varformat), ","))

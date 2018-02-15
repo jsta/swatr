@@ -2,3 +2,4 @@
 
 export(build_swat_basic)
 export(runSWAT2012)
+importFrom(utils,read.fortran)

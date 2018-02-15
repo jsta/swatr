@@ -1,9 +1,9 @@
 Package: swatr
 Version: 0.1
-Title: A multi-OS implementation of the TAMU SWAT model.
+Title: A multi-OS implementation of the TAMU SWAT model
 Author: Stachelek, JS, Fuka, DR, Walter, MT, Steenhuis, TS, and Easton, ZM
 Maintainer: Joseph Stachelek <stachel2@msu.edu>
-Depends: R (>= 2.10), EcoHydRology
+Depends: R (>= 2.10)
 Description: The Soil and Water Assessment Tool is a river basin or
         watershed scale model developed by Dr. Jeff Arnold for the
         USDA-ARS.

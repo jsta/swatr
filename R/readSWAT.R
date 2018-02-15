@@ -2,21 +2,29 @@
 #'
 #' A function to read output.* files from SWAT200* runs.
 #'
-#'
+#' @param simdir file.path
 #' @param outfile_type outfile_type ie. "sub","rch",etc.
+#'
+#' @importFrom utils read.fortran
+#'
 #' @author Daniel R. Fuka
 #' @examples
 #'
 #' ## The function is currently defined as
 #' function(outfile){
 #'
-#' if (outfile=="sub"){
+#' if(outfile=="sub"){
 #'    varformat="x6,a4,1x,a8,1x,a4,a10,30a10"
 #'    dataformat="x6,i4,1x,i8,1x,i4,f10,30f10"
-#'   } else if (outfile=="rch"){
+#'  }else{
+#'     if (outfile=="rch"){
 #'    varformat="x6,a4,1x,a8,1x,a5,30a12"
 #'    dataformat="x6,i4,1x,i8,1x,i5,30f12"
-#'   } else { print ("You need to add your file type to this function if it is not output.sub or output.rch")}
+#'     }else{
+#'       print("You need to add your file type to this function
+#'             if it is not output.sub or output.rch")
+#'     }
+#'   }
 #'   print(varformat)
 #'   print(dataformat)
 #'   vfrformat = unlist(strsplit(as.character(varformat), ","))
@@ -26,7 +34,7 @@
 #'   return(outdata)
 #'   }
 #'
-readSWAT <- function(outfile_path = "output", outfile_type){
+readSWAT <- function(simdir = "output", outfile_type){
 if(missing(outfile_type)){
   stop(
     " 'outfile_type' is missing, should be rch, sub")
@@ -39,15 +47,16 @@ if(missing(outfile_type)){
       varformat  <- "x6,a4,1x,a8,1x,a5,30a12"
       dataformat <- "x6,i4,1x,i8,1x,i5,30f12"
     }else{
-      stop("You need to add your file type to this function if it is not .sub or .rch")
+      stop("You need to add your file type to this function if it is
+           not .sub or .rch")
     }
   }
   vfrformat <- unlist(strsplit(as.character(varformat), ","))
   dfrformat <- unlist(strsplit(as.character(dataformat), ","))
 
-  outvars   <- read.fortran(paste0(outfile_path, ".", outfile_type), vfrformat,
+  outvars   <- read.fortran(paste0(simdir, ".", outfile_type), vfrformat,
                           skip = 8, nrows = 1)
-  outdata   <- read.fortran(paste0(outfile_path, ".", outfile_type), dfrformat,
+  outdata   <- read.fortran(paste0(simdir, ".", outfile_type), dfrformat,
                           skip = 9, col.names = outvars)
   return(outdata)
 }
