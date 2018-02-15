@@ -10,7 +10,8 @@
 #' @author Daniel R. Fuka
 #'
 #' @examples \dontrun{
-#' runSWAT2012("test")
+#' setwd("test")
+#' test <- runSWAT2012(file.path(getwd(), ""))
 #' }
 runSWAT2012 <- function(simdir = ".", hist_wx = NULL, elev = 100, rch = 3) {
 
@@ -33,13 +34,21 @@ runSWAT2012 <- function(simdir = ".", hist_wx = NULL, elev = 100, rch = 3) {
   libarch <- if (nzchar(version$arch))
     paste("libs", version$arch, sep = "/") else "libs"
   swatbin <- "rswat2012.exe"
-  browser()
-  system(shQuote(paste(path.package("swatr"), libarch, swatbin, sep = "/")))
+
+  if(!file.exists(file.path(simdir, swatbin))){
+    invisible(
+      file.copy(
+        path.expand(path.package(package = "swatr")),
+        file.path(path.package(package = "swatr"), "src", swatbin),
+              file.path(simdir, swatbin)))
+  }
+
+  system(shQuote(file.path(simdir, swatbin)))
 
   start_year <- read.fortran(textConnection(readLines(
     file.path(simdir, "file.cio"))[9]), "f20")
 
-  temp <- readLines(file("output.rch"))
+  temp <- readLines(file(file.path(simdir, "output.rch")))
   rchcolname <- sub(" ", "", (substr(temp[9], 50, 61)))
   flow <- data.frame(as.numeric(as.character(substr(temp[10:length(temp)],
                                                     50, 61))))

@@ -8,7 +8,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "tools/images/"
 )
 ```
 
@@ -23,4 +23,16 @@ You can install swatr from github with:
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("jsta/swatr")
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE}
+library(swatr)
+
+build_swat_basic("test")
+setwd("test")
+res <- runSWAT2012(".")
+
+plot(res$mdate, res$FLOW_OUTcms, type = "l", xlab = "", ylab = "FLOW (cms)")
 ```

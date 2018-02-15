@@ -16,7 +16,8 @@
 #' @examples
 #'
 #' \dontrun{
-#' build_swat_basic(dirname="test", iyr="1979", nbyr=13, wsarea=40, elev=200, declat=45, declon=-72)
+#' build_swat_basic(dirname="test", iyr="1979", nbyr=13, wsarea=40, elev=200,
+#'     declat=45, declon=-72)
 #' }
 #'
 build_swat_basic <- function(dirname, iyr = 2000, nbyr = 2, wsarea = 45,
